@@ -11,7 +11,7 @@ public class Book {
         this.availableCopies = availableCopies;
      }
      public void borrow(){
-        if(availableCopies > 0){
+        if(availableCopies > 0){//Checks if there are available copies to be borrowed
             availableCopies--;
         } else{
             System.out.println("No copies available.");

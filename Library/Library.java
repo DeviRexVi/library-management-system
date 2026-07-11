@@ -5,21 +5,21 @@ public class Library {
     private int numberOfBooks;
 
     public Book findBook(String title) {
-        for (int i = 0; i < books.length; i++) {
-            if (books[i] != null) {
-                if (title.equals(books[i].getTitle())) {
+        for (int i = 0; i < books.length; i++) {//Iterates through every position in the array.
+            if (books[i] != null) {//Skips empty positions in the array.
+                if (title.equals(books[i].getTitle())) {//Checks whether this book's title matches the requested title.
                     return books[i];
                 }
             }
         }
-        return null;
+        return null;// If no matching book is found, returns null.
     }
     public void addBook(Book book){
-        if(numberOfBooks < books.length){
-            books[numberOfBooks] = book;
-            numberOfBooks++;
+        if(numberOfBooks < books.length){//checks if there is space in the array
+            books[numberOfBooks] = book;//Stores the book in the next available position.
+            numberOfBooks++;//Updates the number of books in the library.
         }else{
-            System.out.println("LIbrary is full.");
+            System.out.println("Library is full.");
         }
     }
 }
