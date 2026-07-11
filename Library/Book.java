@@ -1,31 +1,33 @@
 package Library;
 
 public class Book {
-    private String title;
-    private String author;
-    private int availableCopies;
+   private String title;
+   private String author;
+   private int availableCopies;
 
-     public Book(String title, String author, int availableCopies){
-        this.title = title;
-        this.author = author;
-        this.availableCopies = availableCopies;
-     }
-     public void borrow(){
-        if(availableCopies > 0){//Checks if there are available copies to be borrowed
-            availableCopies--;
-        } else{
-            System.out.println("No copies available.");
-        }
-     }
-     public void returnCopy(){
-        availableCopies++;
-     }
+   public Book(String title, String author, int availableCopies) {
+      this.title = title;
+      this.author = author;
+      this.availableCopies = availableCopies;
+   }
 
-     public String getTitle(){
-        return title;
-     }
+   public void borrow() {
+      if (availableCopies > 0) {// Checks if there are available copies to be borrowed
+         availableCopies--;
+      } else {
+         System.out.println("No copies available.");
+      }
+   }
 
-     public String getAuthor(){
-        return author;
-     }
+   public void returnCopy() {
+      availableCopies++;
+   }
+
+   public String getTitle() {
+      return title;
+   }
+
+   public String getAuthor() {
+      return author;
+   }
 }
