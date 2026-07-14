@@ -79,7 +79,13 @@ public class App {
         System.out.print("Title: ");
         String title = scanner.nextLine();
 
-        library.findBook(title);
+        Book book = library.findBook(title);
+
+        if (book != null) {
+            System.out.println(book);
+        } else {
+            System.out.println("Book not found.");
+        }
     }
 
     private void borrowBook() {

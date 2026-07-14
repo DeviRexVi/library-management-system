@@ -33,4 +33,11 @@ public class Book {
    public String getAuthor() {
       return author;
    }
+
+   @Override
+public String toString() {
+    return "Title: " + title +
+           "\nAuthor: " + author +
+           "\nAvailable copies: " + availableCopies;
+}
 }
