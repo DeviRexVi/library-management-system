@@ -60,6 +60,9 @@ public class App {
                 case 5: 
                     removeBook();
                     break;
+                case 6:
+                    library.listBooks();
+                    break;
                 default:
                     break;
             }
