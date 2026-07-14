@@ -57,6 +57,9 @@ public class App {
                 case 4:
                     returnBook();
                     break;
+                case 5: 
+                    removeBook();
+                    break;
                 default:
                     break;
             }
@@ -115,5 +118,12 @@ public class App {
         } else {
             System.out.println("Book not found.");
         }
+    }
+
+    private void removeBook(){
+        System.out.print("Title: ");
+        String title = scanner.nextLine();
+
+        library.removeBook(title);
     }
 }
