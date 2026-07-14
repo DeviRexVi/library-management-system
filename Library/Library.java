@@ -36,4 +36,10 @@ public class Library {
             }
         }
     }
+
+    public void listBooks() {
+        for (int i = 0; i < numberOfBooks; i++) {
+            System.out.println("Title: " + books[i].getTitle());
+        }
+    }
 }
