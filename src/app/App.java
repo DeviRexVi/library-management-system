@@ -54,6 +54,9 @@ public class App {
                 case 3:
                     borrowBook();
                     break;
+                case 4:
+                    returnBook();
+                    break;
                 default:
                     break;
             }
@@ -96,6 +99,21 @@ public class App {
 
         if (book != null) {
             book.borrow();
+        }
+    }
+
+    private void returnBook() {
+        System.out.print("Title: ");
+        String title = scanner.nextLine();
+
+        Book book = library.findBook(title);
+
+        System.out.println(book);
+
+        if (book != null) {
+            book.returnCopy();
+        } else {
+            System.out.println("Book not found.");
         }
     }
 }
