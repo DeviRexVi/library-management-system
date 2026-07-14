@@ -38,7 +38,6 @@ public class App {
         System.out.print("Choose an option: ");
     }
 
-    
     public void run() {
 
         do {
@@ -48,6 +47,12 @@ public class App {
             switch (opition) {
                 case 1:
                     addBook();
+                    break;
+                case 2:
+                    findBook();
+                    break;
+                case 3:
+                    borrowBook();
                     break;
                 default:
                     break;
@@ -68,5 +73,23 @@ public class App {
 
         Book book = new Book(title, author, availableCopies);
         library.addBook(book);
+    }
+
+    private void findBook() {
+        System.out.print("Title: ");
+        String title = scanner.nextLine();
+
+        library.findBook(title);
+    }
+
+    private void borrowBook() {
+        System.out.print("Title: ");
+        String title = scanner.nextLine();
+
+        Book book = library.findBook(title);
+
+        if (book != null) {
+            book.borrow();
+        }
     }
 }
