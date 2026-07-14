@@ -40,6 +40,33 @@ public class App {
 
     
     public void run() {
-        showMenu();
+
+        do {
+            showMenu();
+            opition = scanner.nextInt();
+            scanner.nextLine();// Consume the leftover newLine
+            switch (opition) {
+                case 1:
+                    addBook();
+                    break;
+                default:
+                    break;
+            }
+        } while (opition != 0);
+    }
+
+    private void addBook() {
+        System.out.print("title: ");
+        String title = scanner.nextLine();
+
+        System.out.print("Author: ");
+        String author = scanner.nextLine();
+
+        System.out.print("How many?: ");
+        int availableCopies = scanner.nextInt();
+        scanner.nextLine();
+
+        Book book = new Book(title, author, availableCopies);
+        library.addBook(book);
     }
 }
