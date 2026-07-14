@@ -61,7 +61,7 @@ public class App {
                     removeBook();
                     break;
                 case 6:
-                    library.listBooks();
+                    listBooks();
                     break;
                 default:
                     break;
@@ -128,5 +128,9 @@ public class App {
         String title = scanner.nextLine();
 
         library.removeBook(title);
+    }
+
+    private void listBooks(){
+        library.listBooks();
     }
 }
