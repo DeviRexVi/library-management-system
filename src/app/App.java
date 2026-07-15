@@ -8,11 +8,22 @@ public class App {
     private static App instance;
     Library library = new Library();
     Scanner scanner = new Scanner(System.in);
-    int opition;
+    int option;
 
+    /**
+     * Private constructor that prevents direct instantiation of the class.
+     * The App class follows the Singleton pattern, meaning only one instance
+     * of the application can exist.
+     */
     private App() {
     }
 
+    /**
+     * Returns the unique instance of the App class.
+     * Creates a new instance only if one does not already exist.
+     *
+     * @return the single App instance
+     */
     public static App getInstance() {
         if (instance == null) {
             instance = new App();
@@ -20,6 +31,9 @@ public class App {
         return instance;
     }
 
+    /**
+     * Displays the main menu options available to the user.
+     */
     private void showMenu() {
         System.out.println("""
                 ===============================
@@ -38,13 +52,19 @@ public class App {
         System.out.print("Choose an option: ");
     }
 
+    /**
+     * Starts the application loop.
+     * 
+     * Continuously displays the menu, receives user input,
+     * and executes the corresponding operation until the user chooses exit.
+     */
     public void run() {
 
         do {
             showMenu();
-            opition = scanner.nextInt();
+            option = scanner.nextInt();
             scanner.nextLine();// Consume the leftover newLine
-            switch (opition) {
+            switch (option) {
                 case 1:
                     addBook();
                     break;
@@ -66,9 +86,15 @@ public class App {
                 default:
                     break;
             }
-        } while (opition != 0);
+        } while (option != 0);
     }
 
+    /**
+     * Adds a new book to the library.
+     *
+     * Reads the book title, author, and number of available copies
+     * from the user, creates a Book object, and stores it in the library.
+     */
     private void addBook() {
         System.out.print("title: ");
         String title = scanner.nextLine();
@@ -76,14 +102,21 @@ public class App {
         System.out.print("Author: ");
         String author = scanner.nextLine();
 
-        System.out.print("How many?: ");
+        System.out.print("Available copies: ");
         int availableCopies = scanner.nextInt();
         scanner.nextLine();
 
         Book book = new Book(title, author, availableCopies);
         library.addBook(book);
+        System.out.println("Book added successfully.");
     }
 
+    /**
+     * Searches for a book by its title.
+     *
+     * If the book exists, its information is displayed.
+     * Otherwise, a message indicating that the book was not found is shown.
+     */
     private void findBook() {
         System.out.print("Title: ");
         String title = scanner.nextLine();
@@ -97,6 +130,12 @@ public class App {
         }
     }
 
+    /**
+     * Borrows a book from the library.
+     *
+     * Searches for a book by title and decreases its available copies
+     * if at least one copy is available.
+     */
     private void borrowBook() {
         System.out.print("Title: ");
         String title = scanner.nextLine();
@@ -109,32 +148,49 @@ public class App {
             } else {
                 System.out.println("No copies available.");
             }
+        }else{
             System.out.println("Book not found.");
         }
     }
 
+    /**
+     * Returns a borrowed book.
+     *
+     * Searches for a book by title and increases its available copies.
+     */
     private void returnBook() {
         System.out.print("Title: ");
         String title = scanner.nextLine();
 
         Book book = library.findBook(title);
 
-        System.out.println(book);
-
         if (book != null) {
             book.returnCopy();
+            System.out.println("Book returned successfully.");
         } else {
             System.out.println("Book not found.");
         }
     }
 
+    /**
+     * Removes a book from the library.
+     *
+     * Searches for a book by title and removes it if found.
+     */
     private void removeBook() {
         System.out.print("Title: ");
         String title = scanner.nextLine();
 
-        library.removeBook(title);
+        if (library.removeBook(title)) {
+            System.out.println("Book removed successfully.");
+        } else {
+            System.out.println("Book not found.");
+        }
     }
 
+    /**
+     * Displays all books currently stored in the library.
+     */
     private void listBooks() {
         library.listBooks();
     }

@@ -1,5 +1,7 @@
 package Library;
-
+/**
+ * Represents a book and manages its available copies.
+ */
 public class Book {
    private String title;
    private String author;
@@ -15,7 +17,7 @@ public class Book {
    }
 
    public boolean borrow() {
-      if (availableCopies > 0) {// Checks if there are available copies to be borrowed
+      if (availableCopies > 0) {
          availableCopies--;
          return true;
       } else {
@@ -37,10 +39,12 @@ public class Book {
 
    @Override
    public String toString() {
-      return "\n----------------------" +
-            "Title: " + title +
-            "\nAuthor: " + author +
-            "\nAvailable copies: " + availableCopies +
-            "\n----------------------";
+      return """
+            ----------------------
+            Title: %s
+            Author: %s
+            Available copies: %d
+            ----------------------
+            """.formatted(title, author, availableCopies);
    }
 }
