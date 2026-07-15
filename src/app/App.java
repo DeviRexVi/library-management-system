@@ -57,7 +57,7 @@ public class App {
                 case 4:
                     returnBook();
                     break;
-                case 5: 
+                case 5:
                     removeBook();
                     break;
                 case 6:
@@ -104,7 +104,12 @@ public class App {
         Book book = library.findBook(title);
 
         if (book != null) {
-            book.borrow();
+            if (book.borrow()) {
+                System.out.println("Book borrowed successfully.");
+            } else {
+                System.out.println("No copies available.");
+            }
+            System.out.println("Book not found.");
         }
     }
 
@@ -123,14 +128,14 @@ public class App {
         }
     }
 
-    private void removeBook(){
+    private void removeBook() {
         System.out.print("Title: ");
         String title = scanner.nextLine();
 
         library.removeBook(title);
     }
 
-    private void listBooks(){
+    private void listBooks() {
         library.listBooks();
     }
 }
