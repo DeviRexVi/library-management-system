@@ -14,11 +14,12 @@ public class Book {
       this.availableCopies = availableCopies;
    }
 
-   public void borrow() {
+   public boolean borrow() {
       if (availableCopies > 0) {// Checks if there are available copies to be borrowed
          availableCopies--;
+         return true;
       } else {
-         System.out.println("No copies available.");
+         return false;
       }
    }
 
@@ -35,9 +36,11 @@ public class Book {
    }
 
    @Override
-public String toString() {
-    return "Title: " + title +
-           "\nAuthor: " + author +
-           "\nAvailable copies: " + availableCopies + "\n";
-}
+   public String toString() {
+      return "\n----------------------" +
+            "Title: " + title +
+            "\nAuthor: " + author +
+            "\nAvailable copies: " + availableCopies +
+            "\n----------------------";
+   }
 }
