@@ -13,10 +13,8 @@ public class Library {
      */
     public Book findBook(String title) {
         for (int i = 0; i < books.size(); i++) {
-            if (books.get(i) != null) {
-                if (title.equals(books.get(i).getTitle())) {
-                    return books.get(i);
-                }
+            if (title.equals(books.get(i).getTitle())) {
+                return books.get(i);
             }
         }
         return null;
@@ -37,9 +35,8 @@ public class Library {
         if (book != null) {
             books.remove(book);
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 
     public void listBooks() {
