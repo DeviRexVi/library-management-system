@@ -90,10 +90,10 @@ Example of the `removeBook()` implementation.
 - Classes and Objects
 - Encapsulation
 - Constructors
-- Arrays of Objects
 - Object References
 - Searching Algorithms
-- Array Manipulation
+- Collections Framework (`ArrayList`)
+- Data Structures
 - Method Design
 - Separation of Responsibilities
 - Input Validation
@@ -133,12 +133,8 @@ Some planned improvements include:
 
 - Improve user interface and user experience
 - Add more advanced search and filtering options
-- Implement automated tests
-- Search books by author
-- Search books by ISBN
+- Implement automated tests with JUnit
 - Data persistence
-- Unit testing with JUnit
-- Improved console interface
 - Refactoring packages following Java conventions
 
 ---
