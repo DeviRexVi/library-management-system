@@ -154,9 +154,16 @@ public class App {
             }
         }
 
-        Book book = new Book(title, author, availableCopies);
-        library.addBook(book);
-        System.out.println("Book added successfully.");
+        Book existingBook = library.findBook(title, author);
+
+        if (existingBook != null) {
+            existingBook.addCopies(availableCopies);
+            System.out.println("Book copies updated.");
+        } else {
+            Book book = new Book(title, author, availableCopies);
+            library.addBook(book);
+            System.out.println("Book added successfully.");
+        }
     }
 
     /**

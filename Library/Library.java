@@ -20,6 +20,15 @@ public class Library {
         return null;
     }
 
+    public Book findBook(String title, String author) {
+        for (int i = 0; i < books.size(); i++) {
+            if (title.equals(books.get(i).getTitle()) && author.equals(books.get(i).getAuthor())) {
+                return books.get(i);
+            }
+        }
+        return null;
+    }
+
     public void addBook(Book book) {
         books.add(book);
     }

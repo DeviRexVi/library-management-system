@@ -37,6 +37,14 @@ public class Book {
       return author;
    }
 
+   public boolean isBookTheSame(String title, String author){
+      return this.title.equals(title) && this.author.equals(author);
+   }
+
+   public void addCopies(int amount){
+      availableCopies += amount;
+   }
+
    @Override
    public String toString() {
       return """
