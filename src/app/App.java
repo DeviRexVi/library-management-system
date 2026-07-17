@@ -3,6 +3,7 @@ package src.app;
 import java.util.Scanner;
 import Library.Library;
 import Library.Book;
+import java.util.InputMismatchException;
 
 public class App {
     private static App instance;
@@ -102,9 +103,25 @@ public class App {
         System.out.print("Author: ");
         String author = scanner.nextLine();
 
-        System.out.print("Available copies: ");
-        int availableCopies = scanner.nextInt();
-        scanner.nextLine();
+        boolean validInput = false;
+        int availableCopies = 0;
+
+        while (!validInput) {
+            System.out.print("Available Copies: ");
+            try {
+                availableCopies = scanner.nextInt();
+                scanner.nextLine(); // Consume the leftover newLine
+                if (availableCopies < 0) {
+                    System.out.println("Enter a number greater than or equal to 0.");
+                    validInput = false;
+                } else {
+                    validInput = true;
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter a valid number.");
+                scanner.nextLine(); // Clear the invalid input
+            }
+        }
 
         Book book = new Book(title, author, availableCopies);
         library.addBook(book);
@@ -148,7 +165,7 @@ public class App {
             } else {
                 System.out.println("No copies available.");
             }
-        }else{
+        } else {
             System.out.println("Book not found.");
         }
     }
