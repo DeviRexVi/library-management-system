@@ -97,11 +97,28 @@ public class App {
      * from the user, creates a Book object, and stores it in the library.
      */
     private void addBook() {
-        System.out.print("title: ");
-        String title = scanner.nextLine();
+        String title;
+        String author;
 
-        System.out.print("Author: ");
-        String author = scanner.nextLine();
+        while (true) {
+            System.out.print("Title: ");
+            title = scanner.nextLine();
+            if (title.isBlank()) {
+                System.out.println("Title cannot be empty.");
+            } else {
+                break;
+            }
+        }
+
+        while (true) {
+            System.out.print("Author: ");
+            author = scanner.nextLine();
+            if (author.isBlank()) {
+                System.out.println("Author cannot be empty.");
+            } else {
+                break;
+            }
+        }
 
         boolean validInput = false;
         int availableCopies = 0;
