@@ -1,10 +1,10 @@
 # 📚 Library Management System
 
-> A simple console-based application developed in Java to practice Object-Oriented Programming (OOP) concepts.
+> A simple console-based application developed in Java to practice and improve Object-Oriented Programming (OOP) concepts.
 
-A console-based Library Management System developed in **Java** to reinforce the fundamentals of **Object-Oriented Programming (OOP)**.
+A console-based **Library Management System** developed in **Java** to reinforce the fundamentals of **Object-Oriented Programming (OOP)**.
 
-The application simulates common library operations while emphasizing clean code, object interaction, and separation of responsibilities.
+The application simulates common library operations while emphasizing clean code, object interaction, encapsulation, and separation of responsibilities.
 
 ---
 
@@ -16,6 +16,8 @@ The application simulates common library operations while emphasizing clean code
 - ↩️ Return borrowed books
 - ❌ Remove books
 - 📋 List all registered books
+- ✅ Input validation
+- ⚠️ Exception handling
 - 🖥️ Interactive console menu
 
 ---
@@ -30,23 +32,19 @@ The application simulates common library operations while emphasizing clean code
 ## 📂 Project Structure
 
 ```text
-Library Management System/
-│
-├── Library/
-│   ├── Book.java
-│   └── Library.java
-│
-└── src/
-    ├── app/
-    │   └── App.java
-    │
-    └── Main.java
+src/
+├── Main.java
+├── app/
+│   └── App.java
+└── Library/
+    ├── Book.java
+    └── Library.java
 ```
 
 ### Class Responsibilities
 
 | Class | Responsibility |
-|--------|----------------|
+| ----------- | ---------------------------------------------------------- |
 | **Book** | Represents a single book and manages its available copies. |
 | **Library** | Stores and manages the collection of books. |
 | **App** | Handles user interaction and menu navigation. |
@@ -62,7 +60,9 @@ Example of the `findBook()` implementation.
 
 Example of the `removeBook()` implementation.
 
-![findBook Method](images/remove-book-code.png)
+![removeBook Method](images/remove-book-code.png)
+
+---
 
 ## 📸 Application Preview
 
@@ -96,6 +96,8 @@ Example of the `removeBook()` implementation.
 - Array Manipulation
 - Method Design
 - Separation of Responsibilities
+- Input Validation
+- Exception Handling
 - Console Applications
 - Control Structures (`if`, `switch`, `for`, `do-while`)
 
@@ -109,10 +111,16 @@ Clone the repository:
 git clone https://github.com/DeviRexVi/library-management-system.git
 ```
 
-Open the project in your preferred Java IDE and run:
+Compile the project:
 
-```text
-Main.java
+```bash
+javac -d bin src/Main.java src/app/App.java src/Library/*.java
+```
+
+Run the application:
+
+```bash
+java -cp bin Main
 ```
 
 ---
@@ -123,14 +131,15 @@ This project will continue to evolve as I practice new Java concepts and improve
 
 Some planned improvements include:
 
-- Input validation
-- Exception handling
+- Improve user interface and user experience
+- Add more advanced search and filtering options
+- Implement automated tests
 - Search books by author
 - Search books by ISBN
-- Replace arrays with `ArrayList`
 - Data persistence
 - Unit testing with JUnit
 - Improved console interface
+- Refactoring packages following Java conventions
 
 ---
 
