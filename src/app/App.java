@@ -49,8 +49,6 @@ public class App {
                 6. List Books
                 0. Exit
                 """);
-
-        System.out.print("Choose an option: ");
     }
 
     /**
@@ -63,7 +61,23 @@ public class App {
 
         do {
             showMenu();
-            option = scanner.nextInt();
+            boolean validOption = false;
+            while (!validOption) {
+
+                try {
+                    System.out.print("Choose an option: ");
+                    option = scanner.nextInt();
+
+                    if (option < 0 || option > 6) {
+                        System.out.println("Choose an option between 0 and 6.");
+                    } else {
+                        validOption = true;
+                    }
+                } catch (InputMismatchException e) {
+                    System.out.println("Invalid option. Please enter a number between 0 and 6.");
+                    scanner.nextLine();
+                }
+            }
             scanner.nextLine();// Consume the leftover newLine
             switch (option) {
                 case 1:
@@ -102,7 +116,7 @@ public class App {
 
         while (true) {
             System.out.print("Title: ");
-            title = scanner.nextLine();
+            title = scanner.nextLine().trim();
             if (title.isBlank()) {
                 System.out.println("Title cannot be empty.");
             } else {
@@ -112,7 +126,7 @@ public class App {
 
         while (true) {
             System.out.print("Author: ");
-            author = scanner.nextLine();
+            author = scanner.nextLine().trim();
             if (author.isBlank()) {
                 System.out.println("Author cannot be empty.");
             } else {
