@@ -173,8 +173,17 @@ public class App {
      * Otherwise, a message indicating that the book was not found is shown.
      */
     private void findBook() {
-        System.out.print("Title: ");
-        String title = scanner.nextLine();
+        String title;
+
+        while (true) {
+            System.out.print("Title: ");
+            title = scanner.nextLine();
+            if (title.isBlank()) {
+                System.out.println("Title cannot be empty.");
+            } else {
+                break;
+            }
+        }
 
         Book book = library.findBook(title);
 
@@ -192,8 +201,18 @@ public class App {
      * if at least one copy is available.
      */
     private void borrowBook() {
-        System.out.print("Title: ");
-        String title = scanner.nextLine();
+        String title;
+
+        while (true) {
+            System.out.print("Title: ");
+            title = scanner.nextLine();
+
+            if (title.isBlank()) {
+                System.out.println("Title cannot be empty.");
+            } else {
+                break;
+            }
+        }
 
         Book book = library.findBook(title);
 
@@ -214,8 +233,18 @@ public class App {
      * Searches for a book by title and increases its available copies.
      */
     private void returnBook() {
-        System.out.print("Title: ");
-        String title = scanner.nextLine();
+        String title;
+
+        while (true) {
+            System.out.print("Title: ");
+            title = scanner.nextLine();
+
+            if (title.isBlank()) {
+                System.out.println("Title cannot be empty.");
+            } else {
+                break;
+            }
+        }
 
         Book book = library.findBook(title);
 
@@ -233,8 +262,18 @@ public class App {
      * Searches for a book by title and removes it if found.
      */
     private void removeBook() {
-        System.out.print("Title: ");
-        String title = scanner.nextLine();
+        String title;
+
+        while (true) {
+            System.out.print("Title: ");
+            title = scanner.nextLine();
+
+            if (title.isBlank()) {
+                System.out.println("Title cannot be empty.");
+            } else {
+                break;
+            }
+        }
 
         if (library.removeBook(title)) {
             System.out.println("Book removed successfully.");
