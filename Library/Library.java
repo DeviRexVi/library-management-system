@@ -49,8 +49,13 @@ public class Library {
     }
 
     public void listBooks() {
-        for (int i = 0; i < books.size(); i++) {
-            System.out.println(books.get(i));
+        if (books.isEmpty()) {
+            System.out.println("There are no books in the library.");
+            return;
+        }
+
+        for (Book book : books) {
+            System.out.println(book);
         }
     }
 }
