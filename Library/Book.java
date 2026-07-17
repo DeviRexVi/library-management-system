@@ -1,4 +1,5 @@
 package Library;
+
 /**
  * Represents a book and manages its available copies.
  */
@@ -6,14 +7,16 @@ public class Book {
    private String title;
    private String author;
    private int availableCopies;
+   private int totalCopies;
 
    public Book() {
    }
 
-   public Book(String title, String author, int availableCopies) {
+   public Book(String title, String author, int totalCopies) {
       this.title = title;
       this.author = author;
-      this.availableCopies = availableCopies;
+      this.totalCopies = totalCopies;
+      this.availableCopies = totalCopies;
    }
 
    public boolean borrow() {
@@ -25,8 +28,12 @@ public class Book {
       }
    }
 
-   public void returnCopy() {
-      availableCopies++;
+   public boolean returnCopy() {
+      if (availableCopies < totalCopies) {
+         availableCopies++;
+         return true;
+      }
+      return false;
    }
 
    public String getTitle() {
@@ -37,12 +44,13 @@ public class Book {
       return author;
    }
 
-   public boolean isBookTheSame(String title, String author){
+   public boolean isBookTheSame(String title, String author) {
       return this.title.equals(title) && this.author.equals(author);
    }
 
-   public void addCopies(int amount){
+   public void addCopies(int amount) {
       availableCopies += amount;
+      totalCopies += amount;
    }
 
    @Override

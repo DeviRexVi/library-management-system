@@ -135,14 +135,14 @@ public class App {
         }
 
         boolean validInput = false;
-        int availableCopies = 0;
+        int totalCopies = 0;
 
         while (!validInput) {
-            System.out.print("Available Copies: ");
+            System.out.print("Total copies: ");
             try {
-                availableCopies = scanner.nextInt();
+                totalCopies = scanner.nextInt();
                 scanner.nextLine(); // Consume the leftover newLine
-                if (availableCopies < 0) {
+                if (totalCopies < 0) {
                     System.out.println("Enter a number greater than or equal to 0.");
                     validInput = false;
                 } else {
@@ -157,10 +157,10 @@ public class App {
         Book existingBook = library.findBook(title, author);
 
         if (existingBook != null) {
-            existingBook.addCopies(availableCopies);
+            existingBook.addCopies(totalCopies);
             System.out.println("Book copies updated.");
         } else {
-            Book book = new Book(title, author, availableCopies);
+            Book book = new Book(title, author, totalCopies);
             library.addBook(book);
             System.out.println("Book added successfully.");
         }
@@ -249,8 +249,11 @@ public class App {
         Book book = library.findBook(title);
 
         if (book != null) {
-            book.returnCopy();
-            System.out.println("Book returned successfully.");
+            if (book.returnCopy()) {
+                System.out.println("Book returned successfully.");
+            } else {
+                System.out.println("All copies are already available.");
+            }
         } else {
             System.out.println("Book not found.");
         }
