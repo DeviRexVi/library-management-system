@@ -154,8 +154,9 @@ public class App {
      */
     private void findBook() {
         String title = readNonEmptyString("Title: ");
+        String author = readNonEmptyString("Author: ");
 
-        Book book = library.findBook(title);
+        Book book = library.findBook(title, author);
 
         if (book != null) {
             System.out.println(book);
@@ -172,8 +173,9 @@ public class App {
      */
     private void borrowBook() {
         String title = readNonEmptyString("Title: ");
+        String author = readNonEmptyString("Author: ");
 
-        Book book = library.findBook(title);
+        Book book = library.findBook(title, author);
 
         if (book != null) {
             if (book.borrow()) {
@@ -193,8 +195,9 @@ public class App {
      */
     private void returnBook() {
         String title = readNonEmptyString("Title: ");
+        String author = readNonEmptyString("Author: ");
 
-        Book book = library.findBook(title);
+        Book book = library.findBook(title, author);
 
         if (book != null) {
             if (book.returnCopy()) {
@@ -214,8 +217,9 @@ public class App {
      */
     private void removeBook() {
         String title = readNonEmptyString("Title: ");
+        String author = readNonEmptyString("Author: ");
 
-        if (library.removeBook(title)) {
+        if (library.removeBook(title, author)) {
             System.out.println("Book removed successfully.");
         } else {
             System.out.println("Book not found.");
