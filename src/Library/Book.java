@@ -13,6 +13,17 @@ public class Book {
    }
 
    public Book(String title, String author, int totalCopies) {
+
+      if (title == null || title.isBlank()) {
+         throw new IllegalArgumentException("Title cannot be empty.");
+      } else if (author == null || author.isBlank()) {
+         throw new IllegalArgumentException("Author cannot be empty.");
+      }
+
+      if (totalCopies < 0) {
+         throw new IllegalArgumentException("Enter a number greater than or equal to 0.");
+      }
+
       this.title = title;
       this.author = author;
       this.totalCopies = totalCopies;
