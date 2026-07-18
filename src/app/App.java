@@ -111,28 +111,8 @@ public class App {
      * from the user, creates a Book object, and stores it in the library.
      */
     private void addBook() {
-        String title;
-        String author;
-
-        while (true) {
-            System.out.print("Title: ");
-            title = scanner.nextLine().trim();
-            if (title.isBlank()) {
-                System.out.println("Title cannot be empty.");
-            } else {
-                break;
-            }
-        }
-
-        while (true) {
-            System.out.print("Author: ");
-            author = scanner.nextLine().trim();
-            if (author.isBlank()) {
-                System.out.println("Author cannot be empty.");
-            } else {
-                break;
-            }
-        }
+        String title = readNonEmptyString("Title: ");
+        String author = readNonEmptyString("Author: ");
 
         boolean validInput = false;
         int totalCopies = 0;
@@ -173,17 +153,7 @@ public class App {
      * Otherwise, a message indicating that the book was not found is shown.
      */
     private void findBook() {
-        String title;
-
-        while (true) {
-            System.out.print("Title: ");
-            title = scanner.nextLine();
-            if (title.isBlank()) {
-                System.out.println("Title cannot be empty.");
-            } else {
-                break;
-            }
-        }
+        String title = readNonEmptyString("Title: ");
 
         Book book = library.findBook(title);
 
@@ -201,18 +171,7 @@ public class App {
      * if at least one copy is available.
      */
     private void borrowBook() {
-        String title;
-
-        while (true) {
-            System.out.print("Title: ");
-            title = scanner.nextLine();
-
-            if (title.isBlank()) {
-                System.out.println("Title cannot be empty.");
-            } else {
-                break;
-            }
-        }
+        String title = readNonEmptyString("Title: ");
 
         Book book = library.findBook(title);
 
@@ -233,18 +192,7 @@ public class App {
      * Searches for a book by title and increases its available copies.
      */
     private void returnBook() {
-        String title;
-
-        while (true) {
-            System.out.print("Title: ");
-            title = scanner.nextLine();
-
-            if (title.isBlank()) {
-                System.out.println("Title cannot be empty.");
-            } else {
-                break;
-            }
-        }
+        String title = readNonEmptyString("Title: ");
 
         Book book = library.findBook(title);
 
@@ -265,18 +213,7 @@ public class App {
      * Searches for a book by title and removes it if found.
      */
     private void removeBook() {
-        String title;
-
-        while (true) {
-            System.out.print("Title: ");
-            title = scanner.nextLine();
-
-            if (title.isBlank()) {
-                System.out.println("Title cannot be empty.");
-            } else {
-                break;
-            }
-        }
+        String title = readNonEmptyString("Title: ");
 
         if (library.removeBook(title)) {
             System.out.println("Book removed successfully.");
@@ -290,5 +227,21 @@ public class App {
      */
     private void listBooks() {
         library.listBooks();
+    }
+
+    private String readNonEmptyString(String message) {
+        String input;
+
+        while (true) {
+            System.out.print(message);
+            input = scanner.nextLine().trim();
+
+            if (input.isBlank()) {
+                System.out.println(message + "cannot be empty.");
+            } else {
+                break;
+            }
+        }
+        return input;
     }
 }
