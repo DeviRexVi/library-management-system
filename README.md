@@ -1,23 +1,25 @@
 # 📚 Library Management System
 
-> A simple console-based application developed in Java to practice and improve Object-Oriented Programming (OOP) concepts.
+> A console-based Library Management System developed in Java to practice Object-Oriented Programming, clean code principles, and software design.
 
-A console-based **Library Management System** developed in **Java** to reinforce the fundamentals of **Object-Oriented Programming (OOP)**.
+This project simulates the core operations of a library while emphasizing **Object-Oriented Programming (OOP)**, **clean code**, and **progressive refactoring**.
 
-The application simulates common library operations while emphasizing clean code, object interaction, encapsulation, and separation of responsibilities.
+Rather than being a one-time project, it serves as a learning playground where I continuously practice new Java concepts and apply them to a real project.
 
 ---
 
 ## ✨ Features
 
 - 📖 Add new books
-- 🔍 Search books by title
+- 🔍 Search books by title or title and author
 - 📚 Borrow books
 - ↩️ Return borrowed books
 - ❌ Remove books
 - 📋 List all registered books
+- 🔄 Automatically merge duplicate books by increasing the available copies
 - ✅ Input validation
 - ⚠️ Exception handling
+- 🛡️ Domain validation using `IllegalArgumentException`
 - 🖥️ Interactive console menu
 
 ---
@@ -26,6 +28,8 @@ The application simulates common library operations while emphasizing clean code
 
 - Java
 - Object-Oriented Programming (OOP)
+- Java Collections Framework (`ArrayList`)
+- Git & GitHub
 
 ---
 
@@ -44,11 +48,11 @@ src/
 ### Class Responsibilities
 
 | Class | Responsibility |
-| ----------- | ---------------------------------------------------------- |
-| **Book** | Represents a single book and manages its available copies. |
+|--------|----------------|
+| **Book** | Represents a book and protects its own state through domain validation. |
 | **Library** | Stores and manages the collection of books. |
-| **App** | Handles user interaction and menu navigation. |
-| **Main** | Entry point of the application. |
+| **App** | Handles user interaction, input validation, and menu navigation. |
+| **Main** | Application entry point. |
 
 ---
 
@@ -90,16 +94,19 @@ Example of the `removeBook()` implementation.
 - Classes and Objects
 - Encapsulation
 - Constructors
+- Method Overloading
 - Object References
-- Searching Algorithms
 - Collections Framework (`ArrayList`)
-- Data Structures
-- Method Design
-- Separation of Responsibilities
+- Searching Algorithms
 - Input Validation
 - Exception Handling
+- Defensive Programming
+- Domain Validation
+- Separation of Responsibilities
+- Refactoring (DRY)
 - Console Applications
-- Control Structures (`if`, `switch`, `for`, `do-while`)
+- Control Structures (`if`, `switch`, `for`, `while`, `do-while`)
+- Git Branching and Incremental Development
 
 ---
 
@@ -127,15 +134,16 @@ java -cp bin Main
 
 ## 🔮 Future Improvements
 
-This project will continue to evolve as I practice new Java concepts and improve its design.
+This project will continue evolving as I practice new Java concepts and improve my software design skills.
 
-Some planned improvements include:
+Planned improvements include:
 
-- Improve user interface and user experience
-- Add more advanced search and filtering options
-- Implement automated tests with JUnit
-- Data persistence
-- Refactoring packages following Java conventions
+- 💾 Data persistence (files)
+- 🔃 Sorting books by different criteria
+- 🔎 Partial search and filtering
+- 🧪 Unit tests with JUnit
+- 🖥️ Graphical user interface (JavaFX)
+- 📦 Package refactoring following Java conventions
 
 ---
 

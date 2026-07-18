@@ -39,8 +39,8 @@ public class Library {
      * @param title the title of the book to remove
      * @return true if removed, false otherwise
      */
-    public boolean removeBook(String title) {
-        Book book = findBook(title);
+    public boolean removeBook(String title, String author) {
+        Book book = findBook(title, author);
         if (book != null) {
             books.remove(book);
             return true;
