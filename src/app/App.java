@@ -2,12 +2,16 @@ package app;
 
 import java.util.Scanner;
 import Library.Library;
+import Library.LibraryPersistence;
 import Library.Book;
+
+import java.io.IOException;
 import java.util.InputMismatchException;
 
 public class App {
     private static App instance;
     Library library = new Library();
+    LibraryPersistence persistence = new LibraryPersistence();
     Scanner scanner = new Scanner(System.in);
     int option;
 
@@ -58,7 +62,11 @@ public class App {
      * and executes the corresponding operation until the user chooses exit.
      */
     public void run() {
-
+        try {
+            persistence.load(library);
+        } catch (IOException e) {
+            System.out.println("Error loading books.");
+        }
         do {
             showMenu();
             boolean validOption = false;
@@ -97,6 +105,15 @@ public class App {
                     break;
                 case 6:
                     listBooks();
+                    break;
+                case 0:
+                    try {
+                        persistence.save(library);
+                    } catch (IOException e) {
+                        System.out.println("Error saving books.");
+                    }
+
+                    System.out.println("Goodbye!");
                     break;
                 default:
                     break;

@@ -58,4 +58,8 @@ public class Library {
             System.out.println(book);
         }
     }
+
+    public ArrayList<Book> getBooks() {
+        return books;
+    }
 }

@@ -4,18 +4,20 @@
 
 This project simulates the core operations of a library while emphasizing **Object-Oriented Programming (OOP)**, **clean code**, and **progressive refactoring**.
 
-Rather than being a one-time project, it serves as a learning playground where I continuously practice new Java concepts and apply them to a real project.
+Rather than being a one-time project, it serves as a learning playground where I continuously practice new Java concepts by applying them to a real project.
 
 ---
 
 ## ✨ Features
 
 - 📖 Add new books
-- 🔍 Search books by title or title and author
+- 🔍 Search books by title or by title and author
 - 📚 Borrow books
 - ↩️ Return borrowed books
 - ❌ Remove books
 - 📋 List all registered books
+- 💾 Automatically save library data to a text file
+- 📂 Automatically load library data when the application starts
 - 🔄 Automatically merge duplicate books by increasing the available copies
 - ✅ Input validation
 - ⚠️ Exception handling
@@ -29,6 +31,7 @@ Rather than being a one-time project, it serves as a learning playground where I
 - Java
 - Object-Oriented Programming (OOP)
 - Java Collections Framework (`ArrayList`)
+- Java I/O (`File`, `FileReader`, `FileWriter`, `BufferedReader`, `BufferedWriter`)
 - Git & GitHub
 
 ---
@@ -42,7 +45,8 @@ src/
 │   └── App.java
 └── Library/
     ├── Book.java
-    └── Library.java
+    ├── Library.java
+    └── LibraryPersistence.java
 ```
 
 ### Class Responsibilities
@@ -51,38 +55,37 @@ src/
 |--------|----------------|
 | **Book** | Represents a book and protects its own state through domain validation. |
 | **Library** | Stores and manages the collection of books. |
+| **LibraryPersistence** | Handles loading and saving the library data using file persistence. |
 | **App** | Handles user interaction, input validation, and menu navigation. |
 | **Main** | Application entry point. |
 
 ---
 
-## 💻 Code Preview
+## 📸 Screenshots
 
-Example of the `findBook()` implementation.
+### 💻 Code
 
-![findBook Method](images/find-book-code.png)
+Example of the `load()` implementation.
 
-Example of the `removeBook()` implementation.
+![load Method](images/load-code.png)
 
-![removeBook Method](images/remove-book-code.png)
+Example of the `save()` implementation.
+
+![save Method](images/save-code.png)
 
 ---
 
-## 📸 Application Preview
+### 🖥️ Application
 
-### Main Menu
+#### Main Menu
 
 ![Main Menu](images/menu.png)
 
----
-
-### Listing Books
+#### Listing Books
 
 ![Listing Books](images/list-books.png)
 
----
-
-### Borrowing a Book
+#### Borrowing a Book
 
 ![Borrow Book](images/borrow-book.png)
 
@@ -97,6 +100,10 @@ Example of the `removeBook()` implementation.
 - Method Overloading
 - Object References
 - Collections Framework (`ArrayList`)
+- File I/O
+- Data Persistence
+- Buffered Streams (`BufferedReader` / `BufferedWriter`)
+- Try-with-resources
 - Searching Algorithms
 - Input Validation
 - Exception Handling
@@ -138,10 +145,10 @@ This project will continue evolving as I practice new Java concepts and improve 
 
 Planned improvements include:
 
-- 💾 Data persistence (files)
 - 🔃 Sorting books by different criteria
 - 🔎 Partial search and filtering
 - 🧪 Unit tests with JUnit
+- 🗄️ Database integration (JDBC)
 - 🖥️ Graphical user interface (JavaFX)
 - 📦 Package refactoring following Java conventions
 

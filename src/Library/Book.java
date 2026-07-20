@@ -55,6 +55,10 @@ public class Book {
       return author;
    }
 
+   public int getAvailableCopies() {
+      return availableCopies;
+   }
+
    public boolean isBookTheSame(String title, String author) {
       return this.title.equals(title) && this.author.equals(author);
    }
