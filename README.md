@@ -2,7 +2,7 @@
 
 > A console-based Library Management System developed in Java to practice Object-Oriented Programming, clean code principles, and software design.
 
-This project simulates the core operations of a library while emphasizing **Object-Oriented Programming (OOP)**, **clean code**, and **progressive refactoring**.
+This project simulates the core operations of a library while emphasizing **Object-Oriented Programming (OOP)**, **clean code**, **software design**, and **progressive refactoring**.
 
 Rather than being a one-time project, it serves as a learning playground where I continuously practice new Java concepts by applying them to a real project.
 
@@ -22,6 +22,7 @@ Rather than being a one-time project, it serves as a learning playground where I
 - ✅ Input validation
 - ⚠️ Exception handling
 - 🛡️ Domain validation using `IllegalArgumentException`
+- 🧩 Persistence abstraction through interfaces
 - 🖥️ Interactive console menu
 
 ---
@@ -46,6 +47,7 @@ src/
 └── Library/
     ├── Book.java
     ├── Library.java
+    ├── Persistence.java
     └── LibraryPersistence.java
 ```
 
@@ -55,7 +57,8 @@ src/
 |--------|----------------|
 | **Book** | Represents a book and protects its own state through domain validation. |
 | **Library** | Stores and manages the collection of books. |
-| **LibraryPersistence** | Handles loading and saving the library data using file persistence. |
+| **Persistence** | Defines the contract for persistence implementations. |
+| **LibraryPersistence** | Implements file-based persistence for the library. |
 | **App** | Handles user interaction, input validation, and menu navigation. |
 | **Main** | Application entry point. |
 
@@ -98,6 +101,8 @@ Example of the `save()` implementation.
 - Encapsulation
 - Constructors
 - Method Overloading
+- Interfaces
+- Polymorphism
 - Object References
 - Collections Framework (`ArrayList`)
 - File I/O
@@ -110,6 +115,7 @@ Example of the `save()` implementation.
 - Defensive Programming
 - Domain Validation
 - Separation of Responsibilities
+- Programming to Interfaces
 - Refactoring (DRY)
 - Console Applications
 - Control Structures (`if`, `switch`, `for`, `while`, `do-while`)
@@ -136,6 +142,8 @@ Run the application:
 ```bash
 java -cp bin Main
 ```
+
+> **Note:** The application automatically creates `books.txt` on the first execution if it does not already exist.
 
 ---
 

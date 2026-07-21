@@ -3,6 +3,7 @@ package app;
 import java.util.Scanner;
 import Library.Library;
 import Library.LibraryPersistence;
+import Library.Persistence;
 import Library.Book;
 
 import java.io.IOException;
@@ -11,7 +12,7 @@ import java.util.InputMismatchException;
 public class App {
     private static App instance;
     Library library = new Library();
-    LibraryPersistence persistence = new LibraryPersistence();
+    Persistence persistence = new LibraryPersistence();
     Scanner scanner = new Scanner(System.in);
     int option;
 

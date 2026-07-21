@@ -7,9 +7,10 @@ import java.io.FileWriter;
 import java.io.File;
 import java.io.IOException;
 
-public class LibraryPersistence {
+public class LibraryPersistence implements Persistence {
     private static final String FILE_NAME = "books.txt";
 
+    @Override
     public void load(Library library) throws IOException {
         File file = new File(FILE_NAME);
 
@@ -33,6 +34,7 @@ public class LibraryPersistence {
         }
     }
 
+    @Override
     public void save(Library library) throws IOException {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME))) {
             for (Book book : library.getBooks()) {
