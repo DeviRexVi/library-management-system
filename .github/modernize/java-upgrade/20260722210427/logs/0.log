@@ -1,0 +1,222 @@
+2026-07-22T21:04:27.666Z [INFO] ----------------------invoke appmod-report-event----------------------
+2026-07-22T21:04:27.667Z [INFO] [Tool.invoke]({name: appmod-report-event, modelId: auto, input: {
+  "projectPath": "c:\\Users\\Davi Rex\\Desktop\\Projetos Java\\Library Management System",
+  "event": "precheckCompleted",
+  "phase": "precheck",
+  "status": "succeeded",
+  "details": {
+    "components": [
+      {
+        "name": "jdk",
+        "baseVersion": "21",
+        "targetVersion": "25"
+      }
+    ]
+  }
+}}).
+2026-07-22T21:04:27.668Z [INFO] [Tool.invoke] do invoke.
+2026-07-22T21:04:27.670Z [INFO] Project c:\Users\Davi Rex\Desktop\Projetos Java\Library Management System is a maven project, try to get java version from pom.xml
+2026-07-22T21:04:27.673Z [INFO] [Tool.invoke]({result: {
+  "message": "Event 'precheckCompleted' reported!\nSession ID: 20260722210427,\nSession Dir: c:\\Users\\Davi Rex\\Desktop\\Projetos Java\\Library Management System\\.github\\modernize\\java-upgrade\\20260722210427"
+}}).
+2026-07-22T21:04:27.674Z [INFO] ----------------------invoked appmod-report-event----------------------
+2026-07-22T21:04:27.676Z [INFO] Project java version: 21
+2026-07-22T21:04:27.677Z [INFO] Maven project detected.
+2026-07-22T21:04:27.677Z [INFO] Build tool type: mvn
+2026-07-22T21:04:27.796Z [INFO] JDK: {
+  "name": "java",
+  "path": "C:\\Program Files\\Java\\jdk-21.0.11\\bin",
+  "version": "21"
+}
+2026-07-22T21:04:27.802Z [INFO] Build tool: {
+  "name": "mvn",
+  "path": "C:\\Program Files\\Apache\\Maven\\apache-maven-3.9.16\\bin",
+  "version": "",
+  "source": "MAVEN_HOME,PATH"
+}
+2026-07-22T21:04:27.802Z [INFO] Project config: {
+  "buildTool": {
+    "path": "C:\\Program Files\\Apache\\Maven\\apache-maven-3.9.16\\bin",
+    "name": "mvn",
+    "version": "",
+    "source": "MAVEN_HOME,PATH"
+  },
+  "jdk": {
+    "path": "C:\\Program Files\\Java\\jdk-21.0.11\\bin",
+    "name": "java",
+    "version": "21"
+  },
+  "name": "Library Management System",
+  "dir": "c:\\Users\\Davi Rex\\Desktop\\Projetos Java\\Library Management System"
+}
+2026-07-22T21:04:58.561Z [INFO] ---------------------prepare appmod-confirm-upgrade-plan----------------------
+2026-07-22T21:04:58.562Z [INFO] [Tool.prepareInvocation]({name: appmod-confirm-upgrade-plan, input: {
+  "sessionId": "20260722210427",
+  "autoExecute": true
+}}).
+2026-07-22T21:04:58.562Z [INFO] [Tool.prepareInvocation] do prepare invocation.
+2026-07-22T21:04:58.564Z [INFO] [Tool.prepareInvocation]({result: {
+  "invocationMessage": "Auto-executing [upgrade plan](file:///c:/Users/Davi Rex/Desktop/Projetos Java/Library Management System/.github/modernize/java-upgrade/20260722210427/plan.md)"
+}}).
+2026-07-22T21:04:58.564Z [INFO] ----------------------prepared appmod-confirm-upgrade-plan----------------------
+2026-07-22T21:04:59.543Z [INFO] ----------------------invoke appmod-confirm-upgrade-plan----------------------
+2026-07-22T21:04:59.544Z [INFO] [Tool.invoke]({name: appmod-confirm-upgrade-plan, modelId: auto, input: {
+  "sessionId": "20260722210427",
+  "autoExecute": true
+}}).
+2026-07-22T21:04:59.544Z [INFO] [Tool.invoke] do invoke.
+2026-07-22T21:04:59.545Z [INFO] Upgrade plan confirmed successfully.
+2026-07-22T21:04:59.545Z [INFO] [Tool.invoke]({result: {
+  "message": "Generated plan is reviewed and confirmed by the user! the upgrade process will start now."
+}}).
+2026-07-22T21:04:59.545Z [INFO] ----------------------invoked appmod-confirm-upgrade-plan----------------------
+2026-07-22T21:05:02.523Z [INFO] ---------------------prepare appmod-report-event----------------------
+2026-07-22T21:05:02.523Z [INFO] [Tool.prepareInvocation]({name: appmod-report-event, input: {
+  "sessionId": "20260722210427",
+  "projectPath": "c:\\Users\\Davi Rex\\Desktop\\Projetos Java\\Library Management System",
+  "event": "planExecutionStarted",
+  "phase": "execute",
+  "status": "succeeded"
+}}).
+2026-07-22T21:05:02.524Z [INFO] [Tool.prepareInvocation] do prepare invocation.
+2026-07-22T21:05:02.525Z [INFO] [Tool.prepareInvocation]({result: {
+  "invocationMessage": "Report upgrade event"
+}}).
+2026-07-22T21:05:02.525Z [INFO] ----------------------prepared appmod-report-event----------------------
+2026-07-22T21:05:02.725Z [INFO] ----------------------invoke appmod-report-event----------------------
+2026-07-22T21:05:02.726Z [INFO] [Tool.invoke]({name: appmod-report-event, modelId: auto, input: {
+  "sessionId": "20260722210427",
+  "projectPath": "c:\\Users\\Davi Rex\\Desktop\\Projetos Java\\Library Management System",
+  "event": "planExecutionStarted",
+  "phase": "execute",
+  "status": "succeeded"
+}}).
+2026-07-22T21:05:02.726Z [INFO] [Tool.invoke] do invoke.
+2026-07-22T21:05:02.879Z [INFO] [Tool.invoke]({result: {
+  "message": "Event 'planExecutionStarted' reported!\nSession ID: 20260722210427,\nSession Dir: c:\\Users\\Davi Rex\\Desktop\\Projetos Java\\Library Management System\\.github\\modernize\\java-upgrade\\20260722210427"
+}}).
+2026-07-22T21:05:02.880Z [INFO] ----------------------invoked appmod-report-event----------------------
+2026-07-22T21:05:04.824Z [INFO] ---------------------prepare appmod-list-jdks----------------------
+2026-07-22T21:05:04.825Z [INFO] [Tool.prepareInvocation]({name: appmod-list-jdks, input: {
+  "sessionId": "20260722210427"
+}}).
+2026-07-22T21:05:04.825Z [INFO] [Tool.prepareInvocation] do prepare invocation.
+2026-07-22T21:05:04.826Z [INFO] [Tool.prepareInvocation]({result: {
+  "invocationMessage": "List jdks"
+}}).
+2026-07-22T21:05:04.826Z [INFO] ----------------------prepared appmod-list-jdks----------------------
+2026-07-22T21:05:04.954Z [INFO] ----------------------invoke appmod-list-jdks----------------------
+2026-07-22T21:05:04.954Z [INFO] [Tool.invoke]({name: appmod-list-jdks, modelId: auto, input: {
+  "sessionId": "20260722210427"
+}}).
+2026-07-22T21:05:04.955Z [INFO] [Tool.invoke] do invoke.
+2026-07-22T21:05:04.970Z [INFO] [Tool.invoke]({result: {
+  "message": "We found following jdks in your system:\n\n1. Java 21.0.11\n   📁 Path: C:\\Program Files\\Java\\jdk-21.0.11\\bin\n   🏷️ Source: PATH,JAVA_HOME\n\n2. Java 21.0.2\n   📁 Path: C:\\Users\\Davi Rex\\.jdks\\openjdk-21.0.2\\bin\n   🏷️ Source: others\n\n3. Java 26.0.1\n   📁 Path: C:\\Users\\Davi Rex\\.jdks\\openjdk-26.0.1\\bin\n   🏷️ Source: others\n\nTotal: 3 JDK installation(s) found"
+}}).
+2026-07-22T21:05:04.970Z [INFO] ----------------------invoked appmod-list-jdks----------------------
+2026-07-22T21:05:10.579Z [INFO] ---------------------prepare appmod-install-jdk----------------------
+2026-07-22T21:05:10.580Z [INFO] [Tool.prepareInvocation]({name: appmod-install-jdk, input: {
+  "version": "25",
+  "dest": "C:\\Users\\Davi Rex\\.jdks"
+}}).
+2026-07-22T21:05:10.580Z [INFO] [Tool.prepareInvocation] do prepare invocation.
+2026-07-22T21:05:11.459Z [INFO] [Tool.prepareInvocation]({result: {
+  "invocationMessage": "Download and install JDK"
+}}).
+2026-07-22T21:05:11.460Z [INFO] ----------------------prepared appmod-install-jdk----------------------
+2026-07-22T21:05:11.615Z [INFO] ----------------------invoke appmod-install-jdk----------------------
+2026-07-22T21:05:11.615Z [INFO] [Tool.invoke]({name: appmod-install-jdk, modelId: auto, input: {
+  "version": "25",
+  "dest": "C:\\Users\\Davi Rex\\.jdks",
+  "projectPath": "c:\\Users\\Davi Rex\\Desktop\\Projetos Java\\Library Management System"
+}}).
+2026-07-22T21:05:11.615Z [INFO] [Tool.invoke] do invoke.
+2026-07-22T21:06:01.261Z [INFO] [Tool.invoke]({result: {
+  "result": {
+    "name": "java",
+    "path": "C:\\Users\\Davi Rex\\.jdks\\jdk-25.0.2\\bin",
+    "version": "25.0.2"
+  },
+  "message": "JDK 25 is installed at C:\\Users\\Davi Rex\\.jdks\\jdk-25.0.2\\bin",
+  "telemetry": {
+    "tool": "JDK",
+    "version": "25"
+  }
+}}).
+2026-07-22T21:06:01.261Z [INFO] ----------------------invoked appmod-install-jdk----------------------
+2026-07-22T21:06:03.752Z [INFO] ---------------------prepare appmod-report-event----------------------
+2026-07-22T21:06:03.753Z [INFO] [Tool.prepareInvocation]({name: appmod-report-event, input: {
+  "sessionId": "20260722210427",
+  "projectPath": "c:\\Users\\Davi Rex\\Desktop\\Projetos Java\\Library Management System",
+  "event": "environmentSetup",
+  "phase": "execute",
+  "status": "succeeded",
+  "details": {
+    "jdkPath": "C:\\Users\\Davi Rex\\.jdks\\jdk-25.0.2\\bin",
+    "buildToolPath": "."
+  }
+}}).
+2026-07-22T21:06:03.754Z [INFO] [Tool.prepareInvocation] do prepare invocation.
+2026-07-22T21:06:03.755Z [INFO] [Tool.prepareInvocation]({result: {
+  "invocationMessage": "Report upgrade event"
+}}).
+2026-07-22T21:06:03.755Z [INFO] ----------------------prepared appmod-report-event----------------------
+2026-07-22T21:06:03.956Z [INFO] ----------------------invoke appmod-report-event----------------------
+2026-07-22T21:06:03.957Z [INFO] [Tool.invoke]({name: appmod-report-event, modelId: auto, input: {
+  "sessionId": "20260722210427",
+  "projectPath": "c:\\Users\\Davi Rex\\Desktop\\Projetos Java\\Library Management System",
+  "event": "environmentSetup",
+  "phase": "execute",
+  "status": "succeeded",
+  "details": {
+    "jdkPath": "C:\\Users\\Davi Rex\\.jdks\\jdk-25.0.2\\bin",
+    "buildToolPath": "."
+  }
+}}).
+2026-07-22T21:06:03.957Z [INFO] [Tool.invoke] do invoke.
+2026-07-22T21:06:03.961Z [INFO] Project c:\Users\Davi Rex\Desktop\Projetos Java\Library Management System is not a maven project, try to get java version from gradle
+2026-07-22T21:06:03.977Z [INFO] [Tool.invoke]({result: {
+  "message": "Event 'environmentSetup' reported!\nSession ID: 20260722210427,\nSession Dir: c:\\Users\\Davi Rex\\Desktop\\Projetos Java\\Library Management System\\.github\\modernize\\java-upgrade\\20260722210427"
+}}).
+2026-07-22T21:06:03.978Z [INFO] ----------------------invoked appmod-report-event----------------------
+2026-07-22T21:06:04.002Z [INFO] Try to get java version from gradle config files: 
+2026-07-22T21:06:04.002Z [INFO] Try to get java version from gradle properties: undefined
+2026-07-22T21:06:04.003Z [INFO] Project java version: 8
+2026-07-22T21:06:04.019Z [WARN] [ReportEventTool] Full project info unavailable, attempting lightweight fallback: UserError: Failed to detect build tool for the project at c:\Users\Davi Rex\Desktop\Projetos Java\Library Management System. Please ensure the given project is a valid Maven or Gradle project.
+2026-07-22T21:06:04.021Z [INFO] Project c:\Users\Davi Rex\Desktop\Projetos Java\Library Management System is not a maven project, try to get java version from gradle
+2026-07-22T21:06:04.026Z [INFO] Try to get java version from gradle config files: 
+2026-07-22T21:06:04.026Z [INFO] Try to get java version from gradle properties: undefined
+2026-07-22T21:13:02.066Z [INFO] ---------------------prepare appmod-report-event----------------------
+2026-07-22T21:13:02.067Z [INFO] [Tool.prepareInvocation]({name: appmod-report-event, input: {
+  "sessionId": "20260722210427",
+  "projectPath": "c:\\Users\\Davi Rex\\Desktop\\Projetos Java\\Library Management System",
+  "event": "upgradeStepStarted",
+  "phase": "execute",
+  "status": "succeeded",
+  "details": {
+    "stepNumber": 3,
+    "stepTitle": "Upgrade Java Target"
+  }
+}}).
+2026-07-22T21:13:02.068Z [INFO] [Tool.prepareInvocation] do prepare invocation.
+2026-07-22T21:13:02.069Z [INFO] [Tool.prepareInvocation]({result: {
+  "invocationMessage": "Report upgrade event"
+}}).
+2026-07-22T21:13:02.071Z [INFO] ----------------------prepared appmod-report-event----------------------
+2026-07-22T21:13:02.158Z [INFO] ----------------------invoke appmod-report-event----------------------
+2026-07-22T21:13:02.159Z [INFO] [Tool.invoke]({name: appmod-report-event, modelId: auto, input: {
+  "sessionId": "20260722210427",
+  "projectPath": "c:\\Users\\Davi Rex\\Desktop\\Projetos Java\\Library Management System",
+  "event": "upgradeStepStarted",
+  "phase": "execute",
+  "status": "succeeded",
+  "details": {
+    "stepNumber": 3,
+    "stepTitle": "Upgrade Java Target"
+  }
+}}).
+2026-07-22T21:13:02.159Z [INFO] [Tool.invoke] do invoke.
+2026-07-22T21:13:02.162Z [INFO] [Tool.invoke]({result: {
+  "message": "Event 'upgradeStepStarted' reported!\nSession ID: 20260722210427,\nSession Dir: c:\\Users\\Davi Rex\\Desktop\\Projetos Java\\Library Management System\\.github\\modernize\\java-upgrade\\20260722210427"
+}}).
+2026-07-22T21:13:02.163Z [INFO] ----------------------invoked appmod-report-event----------------------

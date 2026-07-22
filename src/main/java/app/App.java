@@ -151,16 +151,15 @@ public class App {
                 scanner.nextLine(); // Clear the invalid input
             }
         }
+        
+        Book book = new Book(title, author, totalCopies);
 
-        Book existingBook = library.findBook(title, author);
+        boolean added = library.addBook(book);
 
-        if (existingBook != null) {
-            existingBook.addCopies(totalCopies);
-            System.out.println("Book copies updated.");
-        } else {
-            Book book = new Book(title, author, totalCopies);
-            library.addBook(book);
+        if (added) {
             System.out.println("Book added successfully.");
+        } else {
+            System.out.println("Book copies updated.");
         }
     }
 

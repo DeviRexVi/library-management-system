@@ -29,8 +29,16 @@ public class Library {
         return null;
     }
 
-    public void addBook(Book book) {
+    public boolean addBook(Book book) {
+        Book existingBook = findBook(book.getTitle(), book.getAuthor());
+
+        if (existingBook != null) {
+            existingBook.addCopies(book.getAvailableCopies());
+            return false; // Atualizou um livro existente
+        }
+
         books.add(book);
+        return true; // Adicionou um novo livro
     }
 
     /**

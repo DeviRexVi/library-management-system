@@ -59,11 +59,18 @@ public class Book {
       return availableCopies;
    }
 
+   public int getTotalCopies() {
+      return totalCopies;
+   }
+
    public boolean isBookTheSame(String title, String author) {
       return this.title.equals(title) && this.author.equals(author);
    }
 
    public void addCopies(int amount) {
+      if (amount < 0) {
+         throw new IllegalArgumentException("Amount cannot be negative");
+      }
       availableCopies += amount;
       totalCopies += amount;
    }

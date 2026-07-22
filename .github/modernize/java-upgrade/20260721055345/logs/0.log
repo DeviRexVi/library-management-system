@@ -1,0 +1,17 @@
+2026-07-21T05:53:45.931Z [INFO] ----------------------invoke appmod-redirect-to-upgrade-agent----------------------
+2026-07-21T05:53:45.935Z [INFO] [Tool.invoke]({name: appmod-redirect-to-upgrade-agent, modelId: auto, input: {
+  "originalPrompt": "Upgrade Java runtime to the latest LTS version in auto-execution mode for this Maven project.",
+  "projectPath": "c:\\Users\\Davi Rex\\Desktop\\Projetos Java\\Library Management System"
+}}).
+2026-07-21T05:53:45.936Z [INFO] [Tool.invoke] do invoke.
+2026-07-21T05:53:45.937Z [INFO] [RedirectToUpgradeAgentTool] Redirecting to custom agent "modernize-java-upgrade" with prompt: Upgrade Java runtime to the latest LTS version in auto-execution mode for this Maven project.
+2026-07-21T05:53:46.308Z [INFO] [RedirectToUpgradeAgentTool] Redirected to custom agent "modernize-java-upgrade". User MUST switch to the new agent to continue.
+2026-07-21T05:53:46.311Z [INFO] [Tool.invoke]({result: {
+  "message": "The upgrade request has been redirected to the \"modernize-java-upgrade\" agent in a new chat session. You MUST! stop processing in this session.",
+  "result": {
+    "redirected": true,
+    "agentName": "modernize-java-upgrade",
+    "prompt": "Upgrade Java runtime to the latest LTS version in auto-execution mode for this Maven project."
+  }
+}}).
+2026-07-21T05:53:46.312Z [INFO] ----------------------invoked appmod-redirect-to-upgrade-agent----------------------
