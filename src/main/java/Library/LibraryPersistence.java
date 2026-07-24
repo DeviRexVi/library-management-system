@@ -8,11 +8,19 @@ import java.io.File;
 import java.io.IOException;
 
 public class LibraryPersistence implements Persistence {
-    private static final String FILE_NAME = "books.txt";
+    private final String fileName;
+
+    public LibraryPersistence() {
+        this("books.txt");
+    }
+
+    public LibraryPersistence(String fileName) {
+        this.fileName = fileName;
+    }
 
     @Override
     public void load(Library library) throws IOException {
-        File file = new File(FILE_NAME);
+        File file = new File(fileName);
 
         if (!file.exists()) {
             file.createNewFile();
@@ -36,7 +44,7 @@ public class LibraryPersistence implements Persistence {
 
     @Override
     public void save(Library library) throws IOException {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
             for (Book book : library.getBooks()) {
                 writer.write(
                         book.getTitle() + ";" +
