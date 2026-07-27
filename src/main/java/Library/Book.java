@@ -30,6 +30,25 @@ public class Book {
       this.availableCopies = totalCopies;
    }
 
+   public Book(String title, String author, int availableCopies, int totalCopies) {
+      if (title == null || title.isBlank()) {
+         throw new IllegalArgumentException("Title cannot be empty.");
+      }
+
+      if (author == null || author.isBlank()) {
+         throw new IllegalArgumentException("Author cannot be empty.");
+      }
+
+      if (totalCopies < 0 || availableCopies < 0) {
+         throw new IllegalArgumentException("Copies cannot be negative.");
+      }
+
+      this.title = title;
+      this.author = author;
+      this.totalCopies = totalCopies;
+      this.availableCopies = availableCopies;
+   }
+
    public boolean borrow() {
       if (availableCopies > 0) {
          availableCopies--;

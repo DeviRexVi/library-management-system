@@ -4,3 +4,4 @@ books.txt
 target/
 .idea/
 .vscode/
+**/database.properties

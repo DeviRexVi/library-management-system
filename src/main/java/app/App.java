@@ -2,9 +2,10 @@ package app;
 
 import java.util.Scanner;
 import Library.Library;
-import Library.LibraryPersistence;
+// import Library.LibraryPersistence;
 import Library.Persistence;
 import Library.Book;
+import Library.DatabasePersistence;
 
 import java.io.IOException;
 import java.util.InputMismatchException;
@@ -12,7 +13,7 @@ import java.util.InputMismatchException;
 public class App {
     private static App instance;
     Library library = new Library();
-    Persistence persistence = new LibraryPersistence();
+    Persistence persistence = new DatabasePersistence();
     Scanner scanner = new Scanner(System.in);
     int option;
 
