@@ -1,10 +1,12 @@
 # 📚 Library Management System
 
-> A console-based Library Management System developed in Java to practice Object-Oriented Programming, clean code principles, and software design.
+> A console-based Library Management System developed in Java to practice Object-Oriented Programming, clean code principles, software design, and different persistence strategies.
 
-This project simulates the core operations of a library while emphasizing **Object-Oriented Programming (OOP)**, **clean code**, **software design**, and **progressive refactoring**.
+This project simulates the core operations of a library while focusing on **Object-Oriented Programming (OOP)**, **clean code**, **software design**, and **continuous refactoring**.
 
-Rather than being a one-time project, it serves as a learning playground where I continuously practice new Java concepts by applying them to a real project.
+Rather than being a one-time project, it serves as a practical environment where I apply new Java concepts and improve the architecture as the project evolves.
+
+The project started with file-based persistence and was later expanded with database support using JDBC, allowing different persistence implementations through abstraction.
 
 ---
 
@@ -16,13 +18,14 @@ Rather than being a one-time project, it serves as a learning playground where I
 - ↩️ Return borrowed books
 - ❌ Remove books
 - 📋 List all registered books
-- 💾 Automatically save library data to a text file
-- 📂 Automatically load library data when the application starts
-- 🔄 Automatically merge duplicate books by increasing the available copies
+- 🔄 Automatically merge duplicate books by increasing copies
 - ✅ Input validation
 - ⚠️ Exception handling
 - 🛡️ Domain validation using `IllegalArgumentException`
 - 🧩 Persistence abstraction through interfaces
+- 📄 File-based persistence
+- 🗄️ Database persistence using JDBC
+- 💾 Automatic saving and loading of library data
 - 🖥️ Interactive console menu
 
 ---
@@ -32,7 +35,11 @@ Rather than being a one-time project, it serves as a learning playground where I
 - Java
 - Object-Oriented Programming (OOP)
 - Java Collections Framework (`ArrayList`)
-- Java I/O (`File`, `FileReader`, `FileWriter`, `BufferedReader`, `BufferedWriter`)
+- Java I/O
+- JDBC
+- SQL
+- MySQL
+- Maven
 - Git & GitHub
 
 ---
@@ -41,26 +48,67 @@ Rather than being a one-time project, it serves as a learning playground where I
 
 ```text
 src/
-├── Main.java
-├── app/
-│   └── App.java
-└── Library/
-    ├── Book.java
-    ├── Library.java
-    ├── Persistence.java
-    └── LibraryPersistence.java
+└── main/
+    ├── java/
+    │   ├── Main.java
+    │   ├── app/
+    │   │   └── App.java
+    │   └── Library/
+    │       ├── Book.java
+    │       ├── Library.java
+    │       ├── Persistence.java
+    │       ├── LibraryPersistence.java
+    │       └── DatabasePersistence.java
+    │
+    └── resources/
+        ├── database.properties.example
+        └── database-schema.sql
 ```
 
-### Class Responsibilities
+---
 
-| Class | Responsibility |
-|--------|----------------|
-| **Book** | Represents a book and protects its own state through domain validation. |
-| **Library** | Stores and manages the collection of books. |
-| **Persistence** | Defines the contract for persistence implementations. |
-| **LibraryPersistence** | Implements file-based persistence for the library. |
-| **App** | Handles user interaction, input validation, and menu navigation. |
-| **Main** | Application entry point. |
+## 🧩 Class Responsibilities
+
+| Class                   | Responsibility                                                                                |
+| ----------------------- | --------------------------------------------------------------------------------------------- |
+| **Book**                | Represents a book entity and protects its own state through domain validation.                |
+| **Library**             | Manages the collection of books and contains business rules, such as merging duplicate books. |
+| **Persistence**         | Defines the contract for persistence implementations.                                         |
+| **LibraryPersistence**  | Implements file-based persistence for saving and loading library data.                        |
+| **DatabasePersistence** | Implements database persistence using JDBC.                                                   |
+| **App**                 | Handles user interaction, input validation, and menu navigation.                              |
+| **Main**                | Application entry point.                                                                      |
+
+---
+
+## 🗄️ Database Configuration
+
+The project supports database persistence using JDBC and MySQL.
+
+Before using the database persistence implementation:
+
+1. Create a MySQL database.
+2. Execute the schema file:
+
+```text
+src/main/resources/database-schema.sql
+```
+
+3. Create a `database.properties` file based on:
+
+```text
+src/main/resources/database.properties.example
+```
+
+Example:
+
+```properties
+url=jdbc:mysql://localhost:3306/library
+user=your_username
+password=your_password
+```
+
+The real `database.properties` file is ignored by Git to prevent exposing sensitive information.
 
 ---
 
@@ -75,6 +123,18 @@ Example of the `load()` implementation.
 Example of the `save()` implementation.
 
 ![save Method](images/save-code.png)
+
+---
+
+### 🗄️ Database
+
+Database structure and stored library data using MySQL.
+
+![Database Structure](images/database-structure.png)
+
+Example of the books table containing persisted data.
+
+![Database Books Table](images/database-books.png)
 
 ---
 
@@ -106,19 +166,19 @@ Example of the `save()` implementation.
 - Object References
 - Collections Framework (`ArrayList`)
 - File I/O
+- JDBC
+- SQL Database Integration
 - Data Persistence
-- Buffered Streams (`BufferedReader` / `BufferedWriter`)
+- Prepared Statements
 - Try-with-resources
-- Searching Algorithms
-- Input Validation
 - Exception Handling
+- Input Validation
 - Defensive Programming
 - Domain Validation
 - Separation of Responsibilities
 - Programming to Interfaces
-- Refactoring (DRY)
+- Refactoring and clean code practices
 - Console Applications
-- Control Structures (`if`, `switch`, `for`, `while`, `do-while`)
 - Git Branching and Incremental Development
 
 ---
@@ -131,19 +191,17 @@ Clone the repository:
 git clone https://github.com/DeviRexVi/library-management-system.git
 ```
 
-Compile the project:
+Build the project using Maven:
 
 ```bash
-javac -d bin src/Main.java src/app/App.java src/Library/*.java
+mvn clean package
 ```
 
 Run the application:
 
 ```bash
-java -cp bin Main
+java -jar target/library-management-system-1.0.0.jar
 ```
-
-> **Note:** The application automatically creates `books.txt` on the first execution if it does not already exist.
 
 ---
 
@@ -153,12 +211,12 @@ This project will continue evolving as I practice new Java concepts and improve 
 
 Planned improvements include:
 
+- 🧪 Expanding unit tests with JUnit
+- 🔎 Improving search and filtering features
 - 🔃 Sorting books by different criteria
-- 🔎 Partial search and filtering
-- 🧪 Unit tests with JUnit
-- 🗄️ Database integration (JDBC)
-- 🖥️ Graphical user interface (JavaFX)
-- 📦 Package refactoring following Java conventions
+- 🖥️ Creating a graphical user interface with JavaFX
+- 📦 Improving package structure following Java conventions
+- 🌐 Developing a REST API version
 
 ---
 
