@@ -73,20 +73,24 @@ public class DatabasePersistence implements Persistence {
     @Override
     public void load(Library library) throws IOException {
         try (Connection connection = getConnection()) {
+
             String sql = "SELECT * FROM books";
 
-            PreparedStatement statement = connection.prepareStatement(sql);
+            // Evita duplicatas caso load() seja chamado mais de uma vez
+            library.getBooks().clear();
 
-            ResultSet result = statement.executeQuery();
+            try (PreparedStatement statement = connection.prepareStatement(sql);
+                    ResultSet result = statement.executeQuery()) {
 
-            while (result.next()) {
-                Book book = new Book(
-                        result.getString("title"),
-                        result.getString("author"),
-                        result.getInt("available_copies"),
-                        result.getInt("total_copies"));
+                while (result.next()) {
+                    Book book = new Book(
+                            result.getString("title"),
+                            result.getString("author"),
+                            result.getInt("available_copies"),
+                            result.getInt("total_copies"));
 
-                library.addBook(book);
+                    library.addBook(book);
+                }
             }
 
         } catch (SQLException e) {
