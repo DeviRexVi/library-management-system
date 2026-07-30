@@ -152,7 +152,7 @@ public class App {
                 scanner.nextLine(); // Clear the invalid input
             }
         }
-        
+
         Book book = new Book(title, author, totalCopies);
 
         boolean added = library.addBook(book);
@@ -196,11 +196,27 @@ public class App {
         Book book = library.findBook(title, author);
 
         if (book != null) {
+
             if (book.borrow()) {
-                System.out.println("Book borrowed successfully.");
+                try {
+                    // Persist the change
+                    if (persistence instanceof DatabasePersistence db) {
+                        db.updateBook(book);
+                    } else {
+                        persistence.save(library);
+                    }
+
+                    System.out.println("Book borrowed successfully.");
+
+                } catch (IOException e) {
+                    System.out.println("Error saving borrowed book: "
+                            + e.getMessage());
+                }
+
             } else {
                 System.out.println("No copies available.");
             }
+
         } else {
             System.out.println("Book not found.");
         }
@@ -219,9 +235,19 @@ public class App {
 
         if (book != null) {
             if (book.returnCopy()) {
-                System.out.println("Book returned successfully.");
-            } else {
-                System.out.println("All copies are already available.");
+                try {
+                    if (persistence instanceof DatabasePersistence db) {
+                        db.updateBook(book);
+                    } else {
+                        persistence.save(library);
+                    }
+
+                    System.out.println("Book returned successfully.");
+
+                } catch (IOException e) {
+                    System.out.println("Error saving returned book: "
+                            + e.getMessage());
+                }
             }
         } else {
             System.out.println("Book not found.");
