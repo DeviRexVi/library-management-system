@@ -4,6 +4,7 @@ package Library;
  * Represents a book and manages its available copies.
  */
 public class Book {
+   private int id;
    private String title;
    private String author;
    private int availableCopies;
@@ -30,7 +31,8 @@ public class Book {
       this.availableCopies = totalCopies;
    }
 
-   public Book(String title, String author, int availableCopies, int totalCopies) {
+   public Book(int id, String title, String author,
+         int availableCopies, int totalCopies) {
       if (title == null || title.isBlank()) {
          throw new IllegalArgumentException("Title cannot be empty.");
       }
@@ -43,10 +45,11 @@ public class Book {
          throw new IllegalArgumentException("Copies cannot be negative.");
       }
 
+      this.id = id;
       this.title = title;
       this.author = author;
-      this.totalCopies = totalCopies;
       this.availableCopies = availableCopies;
+      this.totalCopies = totalCopies;
    }
 
    public boolean borrow() {
@@ -64,6 +67,10 @@ public class Book {
          return true;
       }
       return false;
+   }
+
+   public int getId() {
+      return id;
    }
 
    public String getTitle() {

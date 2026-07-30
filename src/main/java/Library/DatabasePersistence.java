@@ -84,6 +84,7 @@ public class DatabasePersistence implements Persistence {
 
                 while (result.next()) {
                     Book book = new Book(
+                            result.getInt("id"),
                             result.getString("title"),
                             result.getString("author"),
                             result.getInt("available_copies"),
@@ -95,6 +96,37 @@ public class DatabasePersistence implements Persistence {
 
         } catch (SQLException e) {
             throw new IOException("Error loading books from database.", e);
+        }
+    }
+
+    public void updateBook(Book book) throws IOException {
+
+        String sql = """
+                UPDATE books
+                SET available_copies = ?,
+                    total_copies = ?
+                WHERE id = ?
+                """;
+
+        try (Connection connection = getConnection();
+                PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setInt(1, book.getAvailableCopies());
+            statement.setInt(2, book.getTotalCopies());
+            statement.setInt(3, book.getId());
+
+            statement.executeUpdate();
+
+            int rowsAffected = statement.executeUpdate();
+
+            if (rowsAffected == 0) {
+                throw new IOException("Book with id "
+                        + book.getId()
+                        + " was not found.");
+            }
+
+        } catch (SQLException e) {
+            throw new IOException("Error updating book.", e);
         }
     }
 }
