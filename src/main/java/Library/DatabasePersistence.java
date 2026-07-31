@@ -129,4 +129,29 @@ public class DatabasePersistence implements Persistence {
             throw new IOException("Error updating book.", e);
         }
     }
+
+    public void deleteBook(Book book) throws IOException {
+
+        String sql = """
+                DELETE FROM books
+                WHERE id = ?
+                """;
+
+        try (Connection connection = getConnection();
+                PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setInt(1, book.getId());
+
+            int rowsAffected = statement.executeUpdate();
+
+            if (rowsAffected == 0) {
+                throw new IOException("Book with id "
+                        + book.getId()
+                        + " was not found.");
+            }
+
+        } catch (SQLException e) {
+            throw new IOException("Error deleting book.", e);
+        }
+    }
 }

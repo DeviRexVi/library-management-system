@@ -263,8 +263,26 @@ public class App {
         String title = readNonEmptyString("Title: ");
         String author = readNonEmptyString("Author: ");
 
-        if (library.removeBook(title, author)) {
-            System.out.println("Book removed successfully.");
+        Book book = library.findBook(title, author);
+
+        if (book != null) {
+            try {
+
+                // Remove from the database first
+                if (persistence instanceof DatabasePersistence db) {
+                    db.deleteBook(book);
+                }
+
+                // Remove from memory
+                library.removeBook(title, author);
+
+                System.out.println("Book removed successfully.");
+
+            } catch (IOException e) {
+                System.out.println("Error removing book: "
+                        + e.getMessage());
+            }
+
         } else {
             System.out.println("Book not found.");
         }
