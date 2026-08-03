@@ -159,8 +159,7 @@ public class App {
 
         if (added) {
             try {
-                persistence.save(library);
-                persistence.load(library);
+                persistence.insertBook(book);
                 System.out.println("Book added successfully.");
             } catch (IOException e) {
                 System.out.println("Error saving book: " + e.getMessage());

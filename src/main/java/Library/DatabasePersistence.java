@@ -1,5 +1,6 @@
 package Library;
 
+import java.sql.Statement;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
@@ -152,6 +153,31 @@ public class DatabasePersistence implements Persistence {
 
         } catch (SQLException e) {
             throw new IOException("Error deleting book.", e);
+        }
+    }
+
+    public void insertBook(Book book) throws IOException {
+        String sql = """
+                INSERT INTO books(title, author, total_copies, available_copies)
+                VALUES(?, ?, ?, ?)
+                """;
+
+        try (Connection conn = getConnection();
+                PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+            ps.setString(1, book.getTitle());
+            ps.setString(2, book.getAuthor());
+            ps.setInt(3, book.getTotalCopies());
+            ps.setInt(4, book.getTotalCopies());
+
+            ps.executeUpdate();
+            ResultSet generateKeys = ps.getGeneratedKeys();
+
+            if (generateKeys.next()) {
+                int generateId = generateKeys.getInt(1);
+                book.setId(generateId);
+            }
+        } catch (SQLException e) {
+            throw new IOException("Error inserting book.", e);
         }
     }
 }

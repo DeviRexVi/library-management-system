@@ -11,4 +11,6 @@ public interface Persistence {
     void updateBook(Book book) throws IOException;
 
     void deleteBook(Book book) throws IOException;
+
+    void insertBook(Book book) throws IOException;
 }

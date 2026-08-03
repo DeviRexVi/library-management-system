@@ -83,4 +83,15 @@ public class DatabasePersistenceTest {
         // 6. Verify deletion
         assertTrue(updatedLibrary.getBooks().isEmpty());
     }
+
+    @Test
+    void shouldInsertBookAndGenerateId() throws IOException {
+        DatabasePersistence persistence = new DatabasePersistence();
+
+        Book book = new Book("Clean Code", "Robert C. Martin", 5);
+
+        persistence.insertBook(book);
+
+        assertTrue(book.getId() > 0);
+    }
 }
