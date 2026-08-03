@@ -55,4 +55,16 @@ public class LibraryPersistence implements Persistence {
             }
         }
     }
+
+    @Override
+    public void updateBook(Book book) throws IOException {
+        throw new UnsupportedOperationException(
+                "Incremental update is not supported for file persistence.");
+    }
+
+    @Override
+    public void deleteBook(Book book) throws IOException {
+        throw new UnsupportedOperationException(
+                "Incremental deletion is not supported for file persistence.");
+    }
 }

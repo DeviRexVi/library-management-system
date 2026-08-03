@@ -158,7 +158,13 @@ public class App {
         boolean added = library.addBook(book);
 
         if (added) {
-            System.out.println("Book added successfully.");
+            try {
+                persistence.save(library);
+                persistence.load(library);
+                System.out.println("Book added successfully.");
+            } catch (IOException e) {
+                System.out.println("Error saving book: " + e.getMessage());
+            }
         } else {
             System.out.println("Book copies updated.");
         }
@@ -199,20 +205,12 @@ public class App {
 
             if (book.borrow()) {
                 try {
-                    // Persist the change
-                    if (persistence instanceof DatabasePersistence db) {
-                        db.updateBook(book);
-                    } else {
-                        persistence.save(library);
-                    }
-
+                    persistence.updateBook(book);
                     System.out.println("Book borrowed successfully.");
-
                 } catch (IOException e) {
                     System.out.println("Error saving borrowed book: "
                             + e.getMessage());
                 }
-
             } else {
                 System.out.println("No copies available.");
             }
@@ -236,14 +234,8 @@ public class App {
         if (book != null) {
             if (book.returnCopy()) {
                 try {
-                    if (persistence instanceof DatabasePersistence db) {
-                        db.updateBook(book);
-                    } else {
-                        persistence.save(library);
-                    }
-
+                    persistence.updateBook(book);
                     System.out.println("Book returned successfully.");
-
                 } catch (IOException e) {
                     System.out.println("Error saving returned book: "
                             + e.getMessage());
@@ -267,17 +259,9 @@ public class App {
 
         if (book != null) {
             try {
-
-                // Remove from the database first
-                if (persistence instanceof DatabasePersistence db) {
-                    db.deleteBook(book);
-                }
-
-                // Remove from memory
+                persistence.deleteBook(book);
                 library.removeBook(title, author);
-
                 System.out.println("Book removed successfully.");
-
             } catch (IOException e) {
                 System.out.println("Error removing book: "
                         + e.getMessage());

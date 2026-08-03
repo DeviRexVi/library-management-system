@@ -34,11 +34,11 @@ public class Library {
 
         if (existingBook != null) {
             existingBook.addCopies(book.getAvailableCopies());
-            return false; // Atualizou um livro existente
+            return false; // Updates an exixting book
         }
 
         books.add(book);
-        return true; // Adicionou um novo livro
+        return true; // Adds a new book
     }
 
     /**
