@@ -21,11 +21,25 @@ public class Library {
     }
 
     public Book findBook(String title, String author) {
-        for (int i = 0; i < books.size(); i++) {
-            if (title.equals(books.get(i).getTitle()) && author.equals(books.get(i).getAuthor())) {
-                return books.get(i);
+
+        String searchTitle = title.toLowerCase();
+        String searchAuthor = author.toLowerCase();
+
+        for (Book book : books) {
+
+            boolean titleMatches = book.getTitle()
+                    .toLowerCase()
+                    .contains(searchTitle);
+
+            boolean authorMatches = book.getAuthor()
+                    .toLowerCase()
+                    .contains(searchAuthor);
+
+            if (titleMatches && authorMatches) {
+                return book;
             }
         }
+
         return null;
     }
 
