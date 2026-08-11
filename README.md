@@ -1,19 +1,19 @@
 # 📚 Library Management System
 
-> A console-based Library Management System developed in Java to practice Object-Oriented Programming, clean code principles, software design, and different persistence strategies.
+> A console-based Library Management System developed in Java to practice Object-Oriented Programming, clean code principles, software design, JDBC persistence, and incremental application evolution.
 
-This project simulates the core operations of a library while focusing on **Object-Oriented Programming (OOP)**, **clean code**, **software design**, and **continuous refactoring**.
+This project simulates the core operations of a library while focusing on **Object-Oriented Programming (OOP)**, **clean code**, **software design**, **data persistence**, and **continuous refactoring**.
 
 Rather than being a one-time project, it serves as a practical environment where I apply new Java concepts and improve the architecture as the project evolves.
 
-The project started with file-based persistence and was later expanded with database support using JDBC, allowing different persistence implementations through abstraction.
+The project started with **file-based persistence** and was later expanded with **database persistence using JDBC and MySQL**, allowing multiple persistence implementations through abstraction.
 
 ---
 
 ## ✨ Features
 
 - 📖 Add new books
-- 🔍 Search books by title or by title and author
+- 🔍 Search books using **partial title and author matching**
 - 📚 Borrow books
 - ↩️ Return borrowed books
 - ❌ Remove books
@@ -26,6 +26,7 @@ The project started with file-based persistence and was later expanded with data
 - 📄 File-based persistence
 - 🗄️ Database persistence using JDBC
 - 💾 Automatic saving and loading of library data
+- 🔄 Incremental database updates (`INSERT`, `UPDATE`, and `DELETE`)
 - 🖥️ Interactive console menu
 
 ---
@@ -40,6 +41,7 @@ The project started with file-based persistence and was later expanded with data
 - SQL
 - MySQL
 - Maven
+- JUnit 5
 - Git & GitHub
 
 ---
@@ -69,32 +71,33 @@ src/
 
 ## 🧩 Class Responsibilities
 
-| Class                   | Responsibility                                                                                |
-| ----------------------- | --------------------------------------------------------------------------------------------- |
-| **Book**                | Represents a book entity and protects its own state through domain validation.                |
-| **Library**             | Manages the collection of books and contains business rules, such as merging duplicate books. |
-| **Persistence**         | Defines the contract for persistence implementations.                                         |
-| **LibraryPersistence**  | Implements file-based persistence for saving and loading library data.                        |
-| **DatabasePersistence** | Implements database persistence using JDBC.                                                   |
-| **App**                 | Handles user interaction, input validation, and menu navigation.                              |
-| **Main**                | Application entry point.                                                                      |
+| Class | Responsibility |
+|---|---|
+| **Book** | Represents a book entity and protects its own state through domain validation. |
+| **Library** | Manages the collection of books and contains business rules, such as merging duplicate books and searching books. |
+| **Persistence** | Defines the contract for persistence implementations. |
+| **LibraryPersistence** | Implements file-based persistence for saving and loading library data. |
+| **DatabasePersistence** | Implements database persistence using JDBC, including incremental `INSERT`, `UPDATE`, and `DELETE` operations. |
+| **App** | Handles user interaction, input validation, and menu navigation. |
+| **Main** | Application entry point. |
 
 ---
 
 ## 🗄️ Database Configuration
 
-The project supports database persistence using JDBC and MySQL.
+The project supports database persistence using **JDBC and MySQL**.
 
 Before using the database persistence implementation:
 
-1. Create a MySQL database.
-2. Execute the schema file:
+### 1. Create a MySQL database
+
+### 2. Execute the schema file
 
 ```text
 src/main/resources/database-schema.sql
 ```
 
-3. Create a `database.properties` file based on:
+### 3. Create a `database.properties` file based on
 
 ```text
 src/main/resources/database.properties.example
@@ -103,101 +106,89 @@ src/main/resources/database.properties.example
 Example:
 
 ```properties
-url=jdbc:mysql://localhost:3306/library
-user=your_username
-password=your_password
+db.url=jdbc:mysql://localhost:3306/library
+db.user=your_username
+db.password=your_password
 ```
 
 The real `database.properties` file is ignored by Git to prevent exposing sensitive information.
 
 ---
 
-## 📸 Screenshots
-
-### 💻 Code
-
-Example of the `load()` implementation.
-
-![load Method](images/load-code.png)
-
-Example of the `save()` implementation.
-
-![save Method](images/save-code.png)
-
----
-
-### 🗄️ Database
-
-Database structure and stored library data using MySQL.
-
-![Database Structure](images/database-structure.png)
-
-Example of the books table containing persisted data.
-
-![Database Books Table](images/database-books.png)
-
----
-
-### 🖥️ Application
-
-#### Main Menu
-
-![Main Menu](images/menu.png)
-
-#### Listing Books
-
-![Listing Books](images/list-books.png)
-
-#### Borrowing a Book
-
-![Borrow Book](images/borrow-book.png)
-
----
-
 ## 🧠 Concepts Practiced
 
-- Object-Oriented Programming
+### Object-Oriented Programming
+
 - Classes and Objects
 - Encapsulation
 - Constructors
 - Method Overloading
+- Object References
+
+### Collections Framework
+
+- `List`
+- `ArrayList`
+- Enhanced `for-each` loops
+- Collection traversal and search
+
+### Persistence and JDBC
+
+- File I/O
+- JDBC Connections
+- Prepared Statements
+- SQL `INSERT`
+- SQL `UPDATE`
+- SQL `DELETE`
+- SQL `SELECT`
+- Incremental persistence strategies
+- Automatic ID generation with MySQL
+
+### Software Design
+
 - Interfaces
 - Polymorphism
-- Object References
-- Collections Framework (`ArrayList`)
-- File I/O
-- JDBC
-- SQL Database Integration
-- Data Persistence
-- Prepared Statements
+- Programming to Interfaces
+- Separation of Responsibilities
+- Defensive Programming
+- Domain Validation
+- Refactoring and Clean Code Practices
+
+### General Java Concepts
+
 - Try-with-resources
 - Exception Handling
 - Input Validation
-- Defensive Programming
-- Domain Validation
-- Separation of Responsibilities
-- Programming to Interfaces
-- Refactoring and clean code practices
 - Console Applications
 - Git Branching and Incremental Development
 
 ---
 
+## 🧪 Running Tests
+
+Run all tests using Maven:
+
+```bash
+mvn test
+```
+
+---
+
 ## 🚀 Running the Project
 
-Clone the repository:
+### Clone the repository
 
 ```bash
 git clone https://github.com/DeviRexVi/library-management-system.git
 ```
 
-Build the project using Maven:
+### Build the project
 
 ```bash
 mvn clean package
 ```
 
-Run the application:
+### Run the application
 
 ```bash
 java -jar target/library-management-system-1.0.0.jar
@@ -212,11 +203,13 @@ This project will continue evolving as I practice new Java concepts and improve 
 Planned improvements include:
 
 - 🧪 Expanding unit tests with JUnit
-- 🔎 Improving search and filtering features
+- 🔎 Advanced search and filtering features
 - 🔃 Sorting books by different criteria
+- 🧠 Introducing `HashMap` for faster internal lookups
 - 🖥️ Creating a graphical user interface with JavaFX
 - 📦 Improving package structure following Java conventions
 - 🌐 Developing a REST API version
+- 🏗️ Introducing a dedicated **Service Layer** to better separate business logic from user interaction
 
 ---
 
@@ -226,10 +219,10 @@ Planned improvements include:
 
 Software Engineering Student
 
-GitHub: **https://github.com/DeviRexVi**
+GitHub: https://github.com/DeviRexVi
 
 ---
 
 ## 📄 License
 
-This project is intended for educational purposes.
+This project is intended for **educational and portfolio purposes**.
